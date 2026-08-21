@@ -36,7 +36,7 @@ const Projects = () => {
         return (
             <section
                 id="projects"
-                className="scroll-mt-20 min-h-screen flex items-center justify-center"
+                className="scroll-mt-1 min-h-screen flex items-center justify-center"
             >
                 <p className="text-gray-500">
                     Loading projects...
@@ -50,7 +50,7 @@ const Projects = () => {
         return (
             <section
                 id="projects"
-                className="scroll-mt-20 min-h-screen flex items-center justify-center"
+                className="scroll-mt-1 min-h-screen flex items-center justify-center"
             >
                 <p className="text-red-500">
                     {error}
@@ -62,7 +62,7 @@ const Projects = () => {
     return (
         <section
             id="projects"
-            className="scroll-mt-20 min-h-screen px-5 py-20 border-t"
+            className="scroll-mt-1 min-h-screen px-5 py-20 border-t"
         >
             {/* Heading */}
             <div className="text-center mb-10">

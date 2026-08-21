@@ -5,7 +5,7 @@ import profileImage from "../assets/profileImage.jpeg";
 import { FaDotCircle } from "react-icons/fa";
 
 const Hero = () => {
-    const text = "Full Stack Developer";
+    const text = "Full Stack Developer |    BCA Student";
 
     return (
         <main
@@ -73,7 +73,7 @@ const Hero = () => {
                     </a>
 
                     <a
-                        href="/Ayush_Resume.pdf"
+                        href="/resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="

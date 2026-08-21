@@ -63,7 +63,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="scroll-mt-20 min-h-screen px-5 py-20 border-t"
+      className="scroll-mt-1 min-h-screen px-5 py-20 border-t"
     >
       {/* Heading */}
       <div className="text-center mb-8">
