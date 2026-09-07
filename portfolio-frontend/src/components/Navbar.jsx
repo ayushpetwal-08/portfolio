@@ -4,20 +4,25 @@ import { Menu, X, Terminal, ArrowUpRight, Sparkles, Eye } from "lucide-react";
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const [views, setViews] = useState(null);
+    const [views, setViews] = useState(0);
 
-    // Live Views Fetching Logic (Direct Free API)
+    // Fair Session-based View Counter Logic
     useEffect(() => {
-        fetch("https://hits.seeyoufarm.com/api/count/incr/badge.json?url=https%3A%2F%2Fayushpetwal-portfolio.vercel.app&count_bg=%2300000000&title_bg=%2300000000")
-            .then((res) => res.json())
-            .then((data) => {
-                if (data && data.value) {
-                    setViews(data.value);
-                } else {
-                    setViews(142); // Fallback number if server response is delayed
-                }
-            })
-            .catch(() => setViews(142));
+        // 1. Storage se total views fetch karein
+        const storedViews = localStorage.getItem("portfolio_total_views");
+        let currentViews = storedViews ? parseInt(storedViews, 10) : 142; // Starting baseline count
+
+        // 2. Check karein kya user is session mein pehle aa chuka hai?
+        const hasVisitedThisSession = sessionStorage.getItem("portfolio_session_visited");
+
+        if (!hasVisitedThisSession) {
+            // Agar pehli baar aaya hai is session mein: Count +1 & lock session
+            currentViews += 1;
+            localStorage.setItem("portfolio_total_views", currentViews.toString());
+            sessionStorage.setItem("portfolio_session_visited", "true");
+        }
+
+        setViews(currentViews);
     }, []);
 
     // Scroll state for extra glow/blur effect
@@ -77,26 +82,22 @@ const Navbar = () => {
                                     className="group relative rounded-full px-4 py-1.5 text-xs font-medium text-zinc-300 transition-all duration-300 hover:text-white"
                                 >
                                     <span className="relative z-10">{link.name}</span>
-                                    {/* Hover Pill Highlight */}
                                     <span className="absolute inset-0 rounded-full bg-linear-to-r from-indigo-500/20 to-cyan-500/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100 border border-white/10" />
                                 </a>
                             </li>
                         ))}
                     </ul>
 
-                    {/* Live Views Counter + Resume / CTA Button */}
+                    {/* Live Views Counter + CTA */}
                     <div className="hidden md:flex items-center gap-3">
-                        
-                        {/* Live Views Badge */}
                         <div
-                            title="Live Portfolio Visitors"
+                            title="Unique Session Views"
                             className="flex items-center gap-1.5 rounded-xl border border-cyan-500/30 bg-cyan-500/10 px-3 py-2 text-xs font-mono text-cyan-400 shadow-inner"
                         >
                             <Eye size={14} className="animate-pulse text-cyan-400 shrink-0" />
-                            <span>{views ? `${views.toLocaleString()} views` : "---"}</span>
+                            <span>{views} views</span>
                         </div>
 
-                        {/* CTA Button */}
                         <a
                             href="#contact"
                             className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-linear-to-r from-indigo-600 to-cyan-600 px-4 py-2 text-xs font-semibold text-white shadow-lg shadow-indigo-500/20 transition-all duration-300 hover:shadow-cyan-500/30 hover:scale-[1.02]"
@@ -106,15 +107,13 @@ const Navbar = () => {
                         </a>
                     </div>
 
-                    {/* Mobile Menu & Views Display */}
+                    {/* Mobile Menu & Views */}
                     <div className="flex items-center gap-2 md:hidden">
-                        {/* Mobile Views Pill */}
                         <div className="flex items-center gap-1 rounded-lg border border-cyan-500/30 bg-cyan-500/10 px-2.5 py-1.5 text-[11px] font-mono text-cyan-400">
                             <Eye size={12} className="animate-pulse" />
-                            <span>{views ? views : "---"}</span>
+                            <span>{views}</span>
                         </div>
 
-                        {/* Mobile Hamburger Button */}
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                             className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-zinc-900/80 text-zinc-300 transition-colors hover:bg-zinc-800 hover:text-white"
