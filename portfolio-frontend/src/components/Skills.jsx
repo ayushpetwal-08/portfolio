@@ -33,7 +33,7 @@ const Skills = () => {
             color: "from-emerald-500/20 to-teal-500/10",
             borderColor: "group-hover:border-emerald-500/40",
             iconColor: "text-emerald-400",
-            skills: ["MongoDB", "Mongoose", "MySQL",],
+            skills: ["MongoDB", "Mongoose", "MySQL", "PostgreSQL"],
         },
         {
             title: "Languages & Core CS",
