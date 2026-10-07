@@ -25,7 +25,7 @@ const Skills = () => {
             color: "from-indigo-500/20 to-purple-500/10",
             borderColor: "group-hover:border-indigo-500/40",
             iconColor: "text-indigo-400",
-            skills: ["Node.js", "Express.js", "RESTful APIs", "Microservices", "JWT / Auth"],
+            skills: ["Node.js", "Express.js", "RESTful APIs", "Microservices", "JWT / Auth", "Ai Intergration", "LLM APIs"],
         },
         {
             title: "Database Systems",
@@ -41,7 +41,7 @@ const Skills = () => {
             color: "from-amber-500/20 to-orange-500/10",
             borderColor: "group-hover:border-amber-500/40",
             iconColor: "text-amber-400",
-            skills: ["C++","JavaScript", "Python", "Data Structures", "Algorithms", "OOPs Concepts"],
+            skills: ["C++","JavaScript", "TypeScript", "Python", "Data Structures", "Algorithms", "OOPs Concepts"],
         },
         {
             title: "Tools & DevOps",
@@ -49,7 +49,7 @@ const Skills = () => {
             color: "from-fuchsia-500/20 to-pink-500/10",
             borderColor: "group-hover:border-fuchsia-500/40",
             iconColor: "text-fuchsia-400",
-            skills: ["Git", "GitHub", "Postman", "VS Code", "Linux / CLI"],
+            skills: ["Git", "GitHub", "Postman", "VS Code", "Linux / CLI", "Docker"],
         },
         {
             title: "Currently Exploring",
@@ -57,7 +57,7 @@ const Skills = () => {
             color: "from-sky-500/20 to-indigo-500/10",
             borderColor: "group-hover:border-sky-500/40",
             iconColor: "text-sky-400",
-            skills: ["AI Model Integration", "Open Source", "Docker", "System Design"],
+            skills: ["AI Model Integration", "Open Source","Redis","Microservices", "System Design"],
         },
     ];
 
